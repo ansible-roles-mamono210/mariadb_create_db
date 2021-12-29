@@ -1,0 +1,25 @@
+---
+- name: Copy 'my.cnf' to '/root/.my.cnf'
+  ansible.builtin.template:
+    src: my.cnf
+    dest: /root/.my.cnf
+    mode: 0600
+
+- name: Create Database
+  community.mysql.mysql_db:
+    name: '{{ mariadb_db_name }}'
+    login_password: '{{ mariadb_root_password }}'
+    state: present
+
+- name: Grant permissions to {{ mariadb_db_user }} on {{ mariadb_db_name }}
+  community.mysql.mysql_user:
+    name: '{{ mariadb_db_user }}'
+    password: '{{ mariadb_db_password }}'
+    state: present
+    priv: "{{ mariadb_db_name }}.*:ALL"
+    host: localhost
+
+- name: Delete '/root/.my.cnf'
+  ansible.builtin.file:
+    path: /root/.my.cnf
+    state: absent

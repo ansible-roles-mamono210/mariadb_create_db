@@ -1,0 +1,4 @@
+---
+roles:
+  - name: mamono210.mariadb_install
+    src: https://github.com/ansible-roles-mamono210/mariadb_install.git

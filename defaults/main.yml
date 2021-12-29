@@ -1,0 +1,6 @@
+---
+mariadb_root_password: password
+
+mariadb_db_name: molecule
+mariadb_db_user: molecule
+mariadb_db_password: molecule

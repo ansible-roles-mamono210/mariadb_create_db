@@ -1,0 +1,45 @@
+---
+- name: Verify
+  gather_facts: false
+  hosts: all
+
+  tasks:
+    - name: set_fact molecule_platforms
+      ansible.builtin.set_fact:
+        molecule_platforms: "{{ molecule_yml.platforms }}"
+
+    - name: Set MariaDB root password
+      ansible.builtin.set_fact:
+        mariadb_root_password: "{{ molecule_platforms.0.mariadb_root_password }}"
+
+    - name: Copy 'my.cnf' to '/root/.my.cnf'
+      become: yes
+      ansible.builtin.template:
+        src: my.cnf
+        dest: /root/.my.cnf
+        mode: 0600
+
+    - name: Check if database is created
+      become: yes
+      community.mysql.mysql_query:
+        query: SHOW DATABASES
+      register: mysql_query_results
+
+    - name: Delete '/root/.my.cnf'
+      become: yes
+      ansible.builtin.file:
+        path: /root/.my.cnf
+        state: absent
+
+    - name: Check OS version
+      ansible.builtin.command: cat /etc/redhat-release
+      register: os_version
+      changed_when: false
+
+    - name: Make sure Database is created
+      ansible.builtin.debug:
+        var: mysql_query_results
+
+    - name: Show OS version
+      ansible.builtin.debug:
+        var: os_version
