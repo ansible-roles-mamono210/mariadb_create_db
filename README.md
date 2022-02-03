@@ -3,7 +3,7 @@
 Role Description
 =========
 
-Create [MariaDB](https://mariadb.org) database for CentOS7.
+Create [MariaDB](https://mariadb.org) database for CentOS7/Stream8.
 
 Requirements
 ------------
