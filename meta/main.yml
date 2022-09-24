@@ -3,7 +3,7 @@ dependencies: []
 galaxy_info:
   author: mamono210
   company: no name
-  description: MariaDB DB creation for Linux.
+  description: MariaDB DB creation for CentOS7/Stream8.
   galaxy_tags: []
   license: "license (BSD, MIT)"
   min_ansible_version: 6.0.0
@@ -12,3 +12,4 @@ galaxy_info:
     - name: EL
       release:
         - 7
+        - 8
