@@ -6,7 +6,7 @@ galaxy_info:
   description: MariaDB DB creation for Linux.
   galaxy_tags: []
   license: "license (BSD, MIT)"
-  min_ansible_version: 5
+  min_ansible_version: 6.0.0
   role_name: mariadb_create_db
   platforms:
     - name: EL
