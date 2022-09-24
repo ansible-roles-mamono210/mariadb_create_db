@@ -10,5 +10,5 @@ galaxy_info:
   role_name: mariadb_create_db
   platforms:
     - name: EL
-      versions:
+      release:
         - 7
