@@ -11,7 +11,7 @@
     login_password: '{{ mariadb_root_password }}'
     state: present
 
-- name: Grant permissions to {{ mariadb_db_user }} on {{ mariadb_db_name }}
+- name: Grant permissions to the user on the database
   community.mysql.mysql_user:
     name: '{{ mariadb_db_user }}'
     password: '{{ mariadb_db_password }}'
