@@ -21,5 +21,6 @@ scenario:
     - dependency
     - syntax
     - create
+    - prepare
     - converge
     - verify
