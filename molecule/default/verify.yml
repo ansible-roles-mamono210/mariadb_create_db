@@ -1,16 +1,12 @@
 ---
 - name: Verify
-  gather_facts: false
   hosts: all
+  become: true
 
   tasks:
-    - name: Set variables of molecule.yml to molecule_platforms
-      ansible.builtin.set_fact:
-        molecule_platforms: "{{ molecule_yml.platforms }}"
-
     - name: Set MariaDB root password
       ansible.builtin.set_fact:
-        mariadb_root_password: "{{ molecule_platforms.0.mariadb_root_password }}"
+        mariadb_root_password: "{{ mariadb_root_password }}"
 
     - name: Copy 'my.cnf' to '/root/.my.cnf'
       become: yes
