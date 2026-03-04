@@ -3,12 +3,12 @@
 Role Description
 =========
 
-Create [MariaDB](https://mariadb.org) database for CentOS7/Stream8.
+Create [MariaDB](https://mariadb.org) database for CentOS Stream.
 
 Requirements
 ------------
 
-Before running this role, MariaDB server ust be installed and running on the target system.
+Before running this role, MariaDB server must be installed and running on the target system.
 
 Role Variables
 --------------
